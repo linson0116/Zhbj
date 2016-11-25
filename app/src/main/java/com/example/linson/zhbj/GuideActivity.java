@@ -1,15 +1,19 @@
 package com.example.linson.zhbj;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+
+import com.example.linson.zhbj.utils.SpUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +27,7 @@ public class GuideActivity extends Activity {
     private LinearLayout ll_points;
     private int[] mPics;
     private View v_point_red;
+    private Button btn_begin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +56,16 @@ public class GuideActivity extends Activity {
         vp_guide = (ViewPager) findViewById(R.id.vp_guide);
         ll_points = (LinearLayout) findViewById(R.id.ll_points);
         v_point_red = findViewById(R.id.v_point_red);
+        btn_begin = (Button) findViewById(R.id.btn_begin);
+        btn_begin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                finish();
+                SpUtils.putBoolean(getApplicationContext(), SpUtils.GUIDE_FLAG, true);
+            }
+        });
         for (int i = 0; i < mPics.length; i++) {
             ImageView view = new ImageView(this);
             view.setBackgroundResource(R.drawable.points_gray);
@@ -69,6 +84,11 @@ public class GuideActivity extends Activity {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) v_point_red.getLayoutParams();
                 layoutParams.leftMargin = (int) (40 * (position + positionOffset));
                 v_point_red.setLayoutParams(layoutParams);
+                if (position == mPics.length - 1) {
+                    btn_begin.setVisibility(View.VISIBLE);
+                } else {
+                    btn_begin.setVisibility(View.GONE);
+                }
             }
 
             @Override

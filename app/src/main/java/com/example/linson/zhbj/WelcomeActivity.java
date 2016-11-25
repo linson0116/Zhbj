@@ -10,6 +10,8 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 
+import com.example.linson.zhbj.utils.SpUtils;
+
 public class WelcomeActivity extends Activity {
 
     private ImageView iv_welcome_horse;
@@ -56,8 +58,14 @@ public class WelcomeActivity extends Activity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                Intent intent = new Intent(getApplicationContext(), GuideActivity.class);
-                startActivity(intent);
+                if (SpUtils.getBoolean(getApplicationContext(), SpUtils.GUIDE_FLAG)) {
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(getApplicationContext(), GuideActivity.class);
+                    startActivity(intent);
+                }
+                finish();
             }
 
             @Override
