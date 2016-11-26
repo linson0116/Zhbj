@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.0"
     defaultConfig {
         applicationId "com.example.linson.zhbj"
-        minSdkVersion 10
+        minSdkVersion 11
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -26,5 +26,6 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:support-v4:23.0.1'
-    compile project(':library')
+    compile project(':library_sliding_menu')
+    compile files('src/main/lib/xUtils-2.6.14.jar')
 }
