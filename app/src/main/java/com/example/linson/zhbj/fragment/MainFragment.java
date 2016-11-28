@@ -2,11 +2,11 @@ package com.example.linson.zhbj.fragment;
 
 
 import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
 
+import com.example.linson.zhbj.MainActivity;
 import com.example.linson.zhbj.R;
 import com.example.linson.zhbj.base.BaseFragment;
 import com.example.linson.zhbj.base.BasePager;
@@ -15,6 +15,8 @@ import com.example.linson.zhbj.base.impl.NewsPager;
 import com.example.linson.zhbj.base.impl.PolicyPager;
 import com.example.linson.zhbj.base.impl.ServicePager;
 import com.example.linson.zhbj.base.impl.SettingPager;
+import com.example.linson.zhbj.view.NoSlidingViewPager;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
@@ -29,7 +31,7 @@ public class MainFragment extends BaseFragment {
     @ViewInject(R.id.rg_bottom)
     RadioGroup rg_bottom;
     @ViewInject(R.id.vp_content)
-    ViewPager vp_content;
+    NoSlidingViewPager vp_content;
 
     List<BasePager> pagerList = new ArrayList<>();
 
@@ -50,6 +52,53 @@ public class MainFragment extends BaseFragment {
         pagerList.add(new SettingPager(mActivity));
 
         vp_content.setAdapter(new ContentAdapter());
+
+        rg_bottom.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.rb_home:
+                        vp_content.setCurrentItem(0);
+                        pagerList.get(0).initData();
+                        setSlidingTouchMode(false);
+                        break;
+                    case R.id.rb_news:
+                        vp_content.setCurrentItem(1);
+                        pagerList.get(1).initData();
+                        setSlidingTouchMode(true);
+                        break;
+                    case R.id.rb_service:
+                        vp_content.setCurrentItem(2);
+                        pagerList.get(2).initData();
+                        setSlidingTouchMode(true);
+                        break;
+                    case R.id.rb_policy:
+                        vp_content.setCurrentItem(3);
+                        pagerList.get(3).initData();
+                        setSlidingTouchMode(true);
+                        break;
+                    case R.id.rb_setting:
+                        vp_content.setCurrentItem(4);
+                        pagerList.get(4).initData();
+                        setSlidingTouchMode(false);
+                        break;
+                }
+            }
+        });
+        //初始化首页
+        pagerList.get(0).initData();
+        setSlidingTouchMode(false);
+    }
+
+    private void setSlidingTouchMode(boolean flag) {
+        MainActivity mainActivity = (MainActivity) mActivity;
+        SlidingMenu slidingMenu = mainActivity.getSlidingMenu();
+        if (flag == true) {
+            slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        } else {
+            slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
+        }
+
     }
 
     class ContentAdapter extends PagerAdapter {
@@ -69,7 +118,7 @@ public class MainFragment extends BaseFragment {
             BasePager basePager = pagerList.get(position);
             View view = basePager.rootView;
             container.addView(view);
-            basePager.initData();
+            //basePager.initData();
             return view;
         }
 
@@ -78,4 +127,5 @@ public class MainFragment extends BaseFragment {
             container.removeView((View) object);
         }
     }
+
 }
