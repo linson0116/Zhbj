@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.example.linson.zhbj.MainActivity;
 import com.example.linson.zhbj.R;
 import com.example.linson.zhbj.base.BaseFragment;
+import com.example.linson.zhbj.base.impl.NewsPager;
 import com.example.linson.zhbj.bean.NewsBean;
 
 import java.util.List;
@@ -40,6 +41,8 @@ public class LeftMenuFragment extends BaseFragment {
                 menuAdapter.notifyDataSetChanged();
                 MainActivity mainActivity = (MainActivity) mActivity;
                 mainActivity.getSlidingMenu().toggle();
+                NewsPager newsPager = (NewsPager) mainActivity.getMainFragment().pagerList.get(1);
+                newsPager.changeMenuPager(position);
             }
         });
         return mListView;

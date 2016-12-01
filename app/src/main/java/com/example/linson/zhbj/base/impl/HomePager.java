@@ -13,8 +13,10 @@ import com.example.linson.zhbj.base.BasePager;
  */
 
 public class HomePager extends BasePager {
+
     public HomePager(Activity activity) {
         super(activity);
+
     }
 
     @Override
@@ -28,4 +30,6 @@ public class HomePager extends BasePager {
         textView.setGravity(Gravity.CENTER);
         fl_base_pager_content.addView(textView);
     }
+
+
 }
