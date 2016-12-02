@@ -1,1 +1,3 @@
 include ':app', ':library_sliding_menu'
+
+include ':library_viewpagerindicator'

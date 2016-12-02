@@ -14,6 +14,7 @@ import com.example.linson.zhbj.base.impl.menu.MenuSubjectPager;
 import com.example.linson.zhbj.bean.NewsBean;
 import com.example.linson.zhbj.fragment.LeftMenuFragment;
 import com.example.linson.zhbj.utils.ConstantsUtils;
+import com.example.linson.zhbj.utils.SpUtils;
 import com.google.gson.Gson;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -33,7 +34,6 @@ import static android.content.ContentValues.TAG;
 public class NewsPager extends BasePager {
 
     public List<BaseMenuPager> mPagerList = new ArrayList<>();
-    private String mStrResult;
     public NewsPager(Activity activity) {
         super(activity);
         mPagerList.add(new MenuNewsPager(activity));
@@ -52,26 +52,24 @@ public class NewsPager extends BasePager {
 //        textView.setTextSize(20);
 //        textView.setGravity(Gravity.CENTER);
         fl_base_pager_content.addView(new MenuNewsPager(mActivity).rootView);
-
+        //取缓存数据
+        String str = SpUtils.getString(mActivity, ConstantsUtils.NEWS_URL);
+        if (str != null) {
+            initLeftMenuListData(str);
+        }
+        //取网络数据
         getNetInitData(ConstantsUtils.NEWS_URL);
     }
 
 
-    public void getNetInitData(String url) {
+    public void getNetInitData(final String url) {
         HttpUtils httpUtils = new HttpUtils();
         httpUtils.send(HttpRequest.HttpMethod.GET, url, new RequestCallBack<String>() {
             @Override
             public void onSuccess(ResponseInfo<String> responseInfo) {
-                mStrResult = responseInfo.result;
-                Log.i(TAG, "onSuccess: " + mStrResult);
-                Gson gson = new Gson();
-                NewsBean newsBean = gson.fromJson(mStrResult, NewsBean.class);
-//                String str = newsBean.data.get(0).children.get(0).title;
-//                Log.i(TAG, "onSuccess: " + str);
-                MainActivity mainActivity = (MainActivity) mActivity;
-                //传递left_menu初始化数据
-                LeftMenuFragment leftMenuFragment = mainActivity.getLeftMenuFragment();
-                leftMenuFragment.setInitData(newsBean.data);
+                initLeftMenuListData(responseInfo.result);
+                //保存数据作为缓存
+                SpUtils.putString(mActivity, url, responseInfo.result);
             }
 
             @Override
@@ -79,6 +77,15 @@ public class NewsPager extends BasePager {
                 Log.i(TAG, "onFailure: " + s);
             }
         });
+    }
+
+    private void initLeftMenuListData(String mStrResult) {
+        Gson gson = new Gson();
+        NewsBean newsBean = gson.fromJson(mStrResult, NewsBean.class);
+        //传递left_menu初始化数据
+        MainActivity mainActivity = (MainActivity) mActivity;
+        LeftMenuFragment leftMenuFragment = mainActivity.getLeftMenuFragment();
+        leftMenuFragment.setInitData(newsBean.data);
     }
 
     public void changeMenuPager(int index) {

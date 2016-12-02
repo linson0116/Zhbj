@@ -30,4 +30,5 @@ dependencies {
     compile project(':library_sliding_menu')
     compile files('src/main/lib/gson-2.2.1.jar')
     compile files('src/main/lib/org.apache.http.legacy.jar')
+    compile project(':library_viewpagerindicator')
 }

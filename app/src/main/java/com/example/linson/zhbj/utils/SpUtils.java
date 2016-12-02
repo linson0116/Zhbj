@@ -17,7 +17,6 @@ public class SpUtils {
         SharedPreferences.Editor edit = sp.edit();
         edit.putBoolean(key, value);
         edit.commit();
-
     }
 
     public static boolean getBoolean(Context context, String key) {
@@ -26,4 +25,21 @@ public class SpUtils {
         }
         return sp.getBoolean(key, false);
     }
+
+    public static void putString(Context context, String key, String value) {
+        if (sp == null) {
+            sp = context.getSharedPreferences("zhbj", Context.MODE_PRIVATE);
+        }
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putString(key, value);
+        edit.commit();
+    }
+
+    public static String getString(Context context, String key) {
+        if (sp == null) {
+            sp = context.getSharedPreferences("zhbj", Context.MODE_PRIVATE);
+        }
+        return sp.getString(key, null);
+    }
+
 }
