@@ -55,6 +55,9 @@ public class LeftMenuFragment extends BaseFragment {
 
     private void setAdapter(List mList) {
         menuAdapter = new MenuAdapter();
+        if (mListView == null) {
+            initView();
+        }
         mListView.setAdapter(menuAdapter);
     }
 

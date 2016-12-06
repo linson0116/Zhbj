@@ -34,24 +34,17 @@ import static android.content.ContentValues.TAG;
 public class NewsPager extends BasePager {
 
     public List<BaseMenuPager> mPagerList = new ArrayList<>();
+    private NewsBean mNewsBean;
+
     public NewsPager(Activity activity) {
         super(activity);
-        mPagerList.add(new MenuNewsPager(activity));
-        mPagerList.add(new MenuSubjectPager(activity));
-        mPagerList.add(new MenuPicsPager(activity));
-        mPagerList.add(new MenuInteractPager(activity));
     }
 
     @Override
     public void initData() {
         tv_title.setText("新闻");
-        ib_menu.setVisibility(View.GONE);
-//        TextView textView = new TextView(mActivity);
-//        textView.setText("新闻");
-//        textView.setTextColor(Color.RED);
-//        textView.setTextSize(20);
-//        textView.setGravity(Gravity.CENTER);
-        fl_base_pager_content.addView(new MenuNewsPager(mActivity).rootView);
+        ib_menu.setVisibility(View.VISIBLE);
+
         //取缓存数据
         String str = SpUtils.getString(mActivity, ConstantsUtils.NEWS_URL);
         if (str != null) {
@@ -61,15 +54,15 @@ public class NewsPager extends BasePager {
         getNetInitData(ConstantsUtils.NEWS_URL);
     }
 
-
     public void getNetInitData(final String url) {
         HttpUtils httpUtils = new HttpUtils();
         httpUtils.send(HttpRequest.HttpMethod.GET, url, new RequestCallBack<String>() {
             @Override
             public void onSuccess(ResponseInfo<String> responseInfo) {
-                initLeftMenuListData(responseInfo.result);
                 //保存数据作为缓存
                 SpUtils.putString(mActivity, url, responseInfo.result);
+                initLeftMenuListData(responseInfo.result);
+//                Log.i(TAG, "onSuccess: " + responseInfo.result);
             }
 
             @Override
@@ -81,16 +74,25 @@ public class NewsPager extends BasePager {
 
     private void initLeftMenuListData(String mStrResult) {
         Gson gson = new Gson();
-        NewsBean newsBean = gson.fromJson(mStrResult, NewsBean.class);
+        mNewsBean = gson.fromJson(mStrResult, NewsBean.class);
         //传递left_menu初始化数据
         MainActivity mainActivity = (MainActivity) mActivity;
         LeftMenuFragment leftMenuFragment = mainActivity.getLeftMenuFragment();
-        leftMenuFragment.setInitData(newsBean.data);
+        leftMenuFragment.setInitData(mNewsBean.data);
+
+        //初始化Menu页面
+        mPagerList.add(new MenuNewsPager(mActivity, mNewsBean.data.get(0)));
+        mPagerList.add(new MenuSubjectPager(mActivity));
+        mPagerList.add(new MenuPicsPager(mActivity));
+        mPagerList.add(new MenuInteractPager(mActivity));
+        changeMenuPager(0);
     }
 
     public void changeMenuPager(int index) {
+        tv_title.setText(mNewsBean.data.get(index).title);
+        BaseMenuPager baseMenuPager = mPagerList.get(index);
         fl_base_pager_content.removeAllViews();
-        fl_base_pager_content.addView(mPagerList.get(index).rootView);
-        //tv_title.setText();
+        fl_base_pager_content.addView(baseMenuPager.rootView);
+        baseMenuPager.initData();
     }
 }

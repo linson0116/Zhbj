@@ -32,21 +32,21 @@ public class WelcomeActivity extends Activity {
         AnimationSet animationSet = new AnimationSet(false);
         //透明
         AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);
-        alphaAnimation.setDuration(2000);
+        alphaAnimation.setDuration(1000);
         alphaAnimation.setFillAfter(true);
         animationSet.addAnimation(alphaAnimation);
         //缩放
         ScaleAnimation scaleAnimation = new ScaleAnimation(0, 1, 0, 1,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
-        scaleAnimation.setDuration(2000);
+        scaleAnimation.setDuration(1000);
         scaleAnimation.setFillAfter(false);
         animationSet.addAnimation(scaleAnimation);
         //旋转
         RotateAnimation rotateAnimation = new RotateAnimation(0, 360,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
-        rotateAnimation.setDuration(2000);
+        rotateAnimation.setDuration(1000);
         rotateAnimation.setFillAfter(true);
         animationSet.addAnimation(rotateAnimation);
 
