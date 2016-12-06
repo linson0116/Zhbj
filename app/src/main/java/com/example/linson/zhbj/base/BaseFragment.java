@@ -16,8 +16,8 @@ public abstract class BaseFragment extends Fragment {
 
     public Activity mActivity;
 
-//    public BaseFragment() {
-//    }
+    public BaseFragment() {
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
