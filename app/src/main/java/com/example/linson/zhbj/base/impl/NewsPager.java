@@ -48,7 +48,7 @@ public class NewsPager extends BasePager {
         //取缓存数据
         String str = SpUtils.getString(mActivity, ConstantsUtils.NEWS_URL);
         if (str != null) {
-            initLeftMenuListData(str);
+            //initLeftMenuListData(str);
         }
         //取网络数据
         getNetInitData(ConstantsUtils.NEWS_URL);
@@ -59,6 +59,7 @@ public class NewsPager extends BasePager {
         httpUtils.send(HttpRequest.HttpMethod.GET, url, new RequestCallBack<String>() {
             @Override
             public void onSuccess(ResponseInfo<String> responseInfo) {
+                Log.i(TAG, "onSuccess: ");
                 //保存数据作为缓存
                 SpUtils.putString(mActivity, url, responseInfo.result);
                 initLeftMenuListData(responseInfo.result);
@@ -85,11 +86,13 @@ public class NewsPager extends BasePager {
         mPagerList.add(new MenuSubjectPager(mActivity));
         mPagerList.add(new MenuPicsPager(mActivity));
         mPagerList.add(new MenuInteractPager(mActivity));
+
         changeMenuPager(0);
     }
 
     public void changeMenuPager(int index) {
         tv_title.setText(mNewsBean.data.get(index).title);
+        Log.i(TAG, "changeMenuPager: " + mNewsBean.data.get(index).title);
         BaseMenuPager baseMenuPager = mPagerList.get(index);
         fl_base_pager_content.removeAllViews();
         fl_base_pager_content.addView(baseMenuPager.rootView);

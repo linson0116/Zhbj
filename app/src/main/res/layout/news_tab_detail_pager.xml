@@ -19,12 +19,15 @@
             android:id="@+id/tv_news_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:textColor="#fff" />
 
         <LinearLayout
             android:id="@+id/ll_pic_points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:orientation="horizontal"></LinearLayout>
     </RelativeLayout>
 </RelativeLayout>

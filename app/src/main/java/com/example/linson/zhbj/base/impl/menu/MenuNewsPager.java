@@ -37,11 +37,12 @@ public class MenuNewsPager extends BaseMenuPager {
     public MenuNewsPager(Activity activity, NewsBean.MenuBean menuBean) {
         super(activity);
         mChildren = menuBean.children;
+        Log.i(TAG, "MenuNewsPager: mChildren " + mChildren.size());
     }
 
     @Override
     public View initView() {
-        Log.i(TAG, "initView: " + "初始化页面");
+        Log.i(TAG, "initView: " + "初始化页面 MenuNewsPager");
         View view = View.inflate(mActivity, R.layout.menu_news_pager, null);
         ViewUtils.inject(this, view);
         return view;
@@ -49,15 +50,15 @@ public class MenuNewsPager extends BaseMenuPager {
 
     @Override
     public void initData() {
-        Log.i(TAG, "initData: " + "初始化数据");
-        MyPagerAdapter mAdapter = new MyPagerAdapter();
-        vp_menu_newspager.setAdapter(mAdapter);
-        tpi_menu_newspager.setViewPager(vp_menu_newspager);
-        //
+        Log.i(TAG, "initData: " + "初始化数据 MenuNewsPager");
         mNewsTabPagerList = new ArrayList<NewsTabPagerDetail>();
         for (int i = 0; i < mChildren.size(); i++) {
             mNewsTabPagerList.add(new NewsTabPagerDetail(mActivity, mChildren.get(i), i == 0));
         }
+        MyPagerAdapter mAdapter = new MyPagerAdapter();
+        vp_menu_newspager.setAdapter(mAdapter);
+        tpi_menu_newspager.setViewPager(vp_menu_newspager);
+        //
         tpi_menu_newspager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -98,6 +99,7 @@ public class MenuNewsPager extends BaseMenuPager {
             NewsTabPagerDetail newsTabPagerDetail = mNewsTabPagerList.get(position);
             container.addView(newsTabPagerDetail.rootView);
             newsTabPagerDetail.initData();
+            Log.i(TAG, "instantiateItem: position " + position);
             return newsTabPagerDetail.rootView;
         }
 

@@ -36,6 +36,7 @@ public class NewsTabPagerDetail {
     public Activity mActivity;
     public View rootView;
     public NewsBean.TitleBean titleBean;
+
     @ViewInject(R.id.vp_news_pic)
     ViewPager vp_news_pic;
     @ViewInject(R.id.tv_news_title)
@@ -47,6 +48,7 @@ public class NewsTabPagerDetail {
     public NewsTabPagerDetail(Activity activity, NewsBean.TitleBean titleBean, boolean isEnableSlidingMenu) {
         mActivity = activity;
         this.titleBean = titleBean;
+
         initView();
         mBitmapUtils = new BitmapUtils(mActivity);
         mBitmapUtils.configDefaultBitmapConfig(Bitmap.Config.ARGB_4444);
@@ -60,8 +62,8 @@ public class NewsTabPagerDetail {
     }
 
     public void initData() {
+        Log.i(TAG, "initData: NewsTabPagerDetail");
         String url = ConstantsUtils.SERVER_URL + titleBean.url;
-        Log.i(TAG, "initData: " + url);
         HttpUtils httpUtils = new HttpUtils();
         httpUtils.send(HttpRequest.HttpMethod.GET, url, new RequestCallBack<String>() {
             @Override
@@ -80,11 +82,41 @@ public class NewsTabPagerDetail {
 
     //处理json
     private void processData(String result) {
-//        Log.i(TAG, "processData: " + result);
         Gson gson = new Gson();
         mTabDetailBean = gson.fromJson(result, TabDetailBean.class);
         MyPagerAdapter myPagerAdapter = new MyPagerAdapter();
         vp_news_pic.setAdapter(myPagerAdapter);
+        vp_news_pic.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                tv_news_title.setText(mTabDetailBean.data.topnews.get(position).title);
+                Log.i(TAG, "onPageSelected: " + mTabDetailBean.data.topnews.get(position).title);
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+        ll_pic_points.removeAllViews();
+        for (int i = 0; i < mTabDetailBean.data.topnews.size(); i++) {
+            View view = new View(mActivity);
+            view.setBackgroundResource(R.drawable.topnews_point_bg);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(10, 10);
+            if (i != 0) {
+                layoutParams.leftMargin = 10;
+            }
+            view.setEnabled(false);
+            view.setLayoutParams(layoutParams);
+            ll_pic_points.addView(view);
+        }
+        tv_news_title.setText(mTabDetailBean.data.topnews.get(0).title);
+
     }
 
     class MyPagerAdapter extends PagerAdapter {
@@ -106,7 +138,8 @@ public class NewsTabPagerDetail {
             iv.setImageResource(R.drawable.topnews_item_default);
             mBitmapUtils.display(iv, mTabDetailBean.data.topnews.get(position).topimage);
             container.addView(iv);
-            tv_news_title.setText(mTabDetailBean.data.topnews.get(position).title);
+//            tv_news_title.setText(mTabDetailBean.data.topnews.get(position).title);
+            Log.i(TAG, "instantiateItem: " + mTabDetailBean.data.topnews.get(position).title);
             return iv;
         }
 

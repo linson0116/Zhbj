@@ -2,6 +2,7 @@ package com.example.linson.zhbj.fragment;
 
 
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
@@ -22,6 +23,8 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by linson on 2016/11/26.
@@ -44,6 +47,7 @@ public class MainFragment extends BaseFragment {
 
     @Override
     public void initData() {
+        Log.i(TAG, "initData: mainfragment");
         rg_bottom.check(R.id.rb_home);
         pagerList.add(new HomePager(mActivity));
         pagerList.add(new NewsPager(mActivity));
@@ -52,7 +56,22 @@ public class MainFragment extends BaseFragment {
         pagerList.add(new SettingPager(mActivity));
 
         vp_content.setAdapter(new ContentAdapter());
-
+//        vp_content.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//                pagerList.get(position).initData();
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//
+//            }
+//        });
         rg_bottom.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
