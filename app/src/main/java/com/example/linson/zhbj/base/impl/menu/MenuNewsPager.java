@@ -1,21 +1,23 @@
 package com.example.linson.zhbj.base.impl.menu;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
+import com.example.linson.zhbj.MainActivity;
 import com.example.linson.zhbj.R;
 import com.example.linson.zhbj.base.BaseMenuPager;
+import com.example.linson.zhbj.base.NewsTabPagerDetail;
 import com.example.linson.zhbj.bean.NewsBean;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 import com.viewpagerindicator.TabPageIndicator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
@@ -30,6 +32,7 @@ public class MenuNewsPager extends BaseMenuPager {
     TabPageIndicator tpi_menu_newspager;
     @ViewInject(R.id.vp_menu_newspager)
     ViewPager vp_menu_newspager;
+    private ArrayList<NewsTabPagerDetail> mNewsTabPagerList;
 
     public MenuNewsPager(Activity activity, NewsBean.MenuBean menuBean) {
         super(activity);
@@ -39,7 +42,7 @@ public class MenuNewsPager extends BaseMenuPager {
     @Override
     public View initView() {
         Log.i(TAG, "initView: " + "初始化页面");
-        View view = View.inflate(mActivity, R.layout.news_tab_detail_pager, null);
+        View view = View.inflate(mActivity, R.layout.menu_news_pager, null);
         ViewUtils.inject(this, view);
         return view;
     }
@@ -50,6 +53,31 @@ public class MenuNewsPager extends BaseMenuPager {
         MyPagerAdapter mAdapter = new MyPagerAdapter();
         vp_menu_newspager.setAdapter(mAdapter);
         tpi_menu_newspager.setViewPager(vp_menu_newspager);
+        //
+        mNewsTabPagerList = new ArrayList<NewsTabPagerDetail>();
+        for (int i = 0; i < mChildren.size(); i++) {
+            mNewsTabPagerList.add(new NewsTabPagerDetail(mActivity, mChildren.get(i), i == 0));
+        }
+        tpi_menu_newspager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 0) {
+                    ((MainActivity) mActivity).getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+                } else {
+                    ((MainActivity) mActivity).getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
     }
 
@@ -67,13 +95,10 @@ public class MenuNewsPager extends BaseMenuPager {
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-
-
-            TextView textView = new TextView(mActivity);
-            textView.setText("AAA1");
-            textView.setTextColor(Color.RED);
-            container.addView(textView);
-            return textView;
+            NewsTabPagerDetail newsTabPagerDetail = mNewsTabPagerList.get(position);
+            container.addView(newsTabPagerDetail.rootView);
+            newsTabPagerDetail.initData();
+            return newsTabPagerDetail.rootView;
         }
 
         @Override
