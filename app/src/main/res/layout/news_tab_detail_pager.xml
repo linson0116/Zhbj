@@ -1,33 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:background="#f00">
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp_news_pic"
+    android:layout_height="match_parent">
+
+    <com.example.linson.zhbj.view.RefreshListView
+        android:id="@+id/rlv_news"
         android:layout_width="match_parent"
-        android:layout_height="200dp"></android.support.v4.view.ViewPager>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="#44000000"
-        android:padding="5dp">
-
-        <TextView
-            android:id="@+id/tv_news_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:textColor="#fff" />
-
-        <LinearLayout
-            android:id="@+id/ll_pic_points"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:orientation="horizontal"></LinearLayout>
-    </RelativeLayout>
+        android:layout_height="match_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:fadingEdge="none" />
 </RelativeLayout>

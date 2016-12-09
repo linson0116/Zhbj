@@ -72,6 +72,7 @@ public class MenuNewsPager extends BaseMenuPager {
                 } else {
                     ((MainActivity) mActivity).getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
                 }
+
             }
 
             @Override

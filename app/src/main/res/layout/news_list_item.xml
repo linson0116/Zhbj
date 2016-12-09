@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff">
+
+    <ImageView
+        android:id="@+id/iv_news_list_item_icon"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_centerVertical="true"
+        android:background="@android:color/darker_gray"
+        android:padding="1dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/pic_item_list_default" />
+
+    <TextView
+        android:id="@+id/tv_news_list_item_textdetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/iv_news_list_item_icon"
+        android:lines="2"
+        android:text="这两家公司在其他一些方面的整合也是预料之中的事情。例如，将LinkedIn通知功能整合到Windows中，将LinkedIn的身份认证系统整合到Office 365套件中，从而让用户能够在办公的过程中看到和使用LinkedIn网站的信息。"
+        android:textColor="#000"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_news_list_item_textdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/tv_news_list_item_textdetail"
+        android:layout_below="@id/tv_news_list_item_textdetail"
+        android:layout_marginTop="5dip"
+        android:text="1990-09-09 09:09"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="15sp" />
+</RelativeLayout>
