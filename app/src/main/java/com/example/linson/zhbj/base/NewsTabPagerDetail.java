@@ -53,6 +53,8 @@ public class NewsTabPagerDetail {
     private NewsListAdapter mNewsListAdapter;
     private List<TabDetailBean.News> mNewsListData;
 
+    private boolean isPullDownRefresh = false; // 是否正在下拉刷新中
+
     public NewsTabPagerDetail(Activity activity, NewsBean.TitleBean titleBean, boolean isEnableSlidingMenu) {
         mActivity = activity;
         this.titleBean = titleBean;
@@ -71,8 +73,17 @@ public class NewsTabPagerDetail {
         ViewUtils.inject(this, news_top_pics);
         //添加到头部
         //lv_news.addHeaderView(news_top_pics);
-
+        //添加轮播图
         rlv_news.addSecondHeaderView(news_top_pics);
+
+        //回调
+        rlv_news.setOnRefreshListener(new RefreshListView.OnRefreshListener() {
+            @Override
+            public void onPullDownRefresh() {
+                isPullDownRefresh = true;
+                initData();
+            }
+        });
         return rootView;
     }
 
@@ -82,12 +93,25 @@ public class NewsTabPagerDetail {
         httpUtils.send(HttpRequest.HttpMethod.GET, url, new RequestCallBack<String>() {
             @Override
             public void onSuccess(ResponseInfo<String> responseInfo) {
+//                try {
+//                    Thread.sleep(1000);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+                if (isPullDownRefresh) {
+                    isPullDownRefresh = false;
+                    rlv_news.onRefreshFinish(true);
+                }
                 processData(responseInfo.result);
             }
 
             @Override
             public void onFailure(HttpException e, String s) {
                 Log.i(TAG, "onFailure: 请求数据失败");
+                if (isPullDownRefresh) {
+                    isPullDownRefresh = false;
+                    rlv_news.onRefreshFinish(false);
+                }
             }
         });
 
