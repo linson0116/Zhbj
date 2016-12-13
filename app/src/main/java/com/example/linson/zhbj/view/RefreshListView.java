@@ -30,24 +30,21 @@ public class RefreshListView extends ListView {
     private final int PULL_DOWN_REFRESH = 0; // 下拉刷新
     private final int RELEASE_REFRESH = 1; // 释放刷新
     private final int REFRESHING = 2; // 正在刷新中
+    public Boolean isLoadingMore = false;
     private LinearLayout mHeaderView;
     private int mDownY = -1;
     private int mHeaderViewHeight;
     private View mPullDownHeaderView;
     private View mSecondHeaderView;
     private int mCurrentState = PULL_DOWN_REFRESH; // 当前头布局的状态, 默认为: 下拉刷新
-
     private int mListViewYOnScreen = -1; // ListView在屏幕中y轴的值
     private TextView tvState;
     private ImageView mIvArrow;
     private ProgressBar mProgressbar;
     private TextView tvLastUpdateTime;
-
     private RotateAnimation upAnima; // 向上旋转的动画
     private RotateAnimation downAnima; // 向下旋转的动画
-
     private OnRefreshListener mOnRefreshListener; // 用户的回调事件
-    private Boolean isLoadingMore = false;
     private View mFooterView;
     private int mFooterViewMeasuredHeight;
 
@@ -264,9 +261,7 @@ public class RefreshListView extends ListView {
                 tvLastUpdateTime.setText("最后刷新时间: " + getCurrentTime());
             }
         }
-
     }
-
     /**
      * 获取当前时间: 1990-09-09 09:09:09
      *
@@ -279,6 +274,10 @@ public class RefreshListView extends ListView {
 
     public void setOnRefreshListener(OnRefreshListener listener) {
         this.mOnRefreshListener = listener;
+    }
+
+    public void hiddenFooterView() {
+        mFooterView.setPadding(0, -mFooterViewMeasuredHeight, 0, 0);
     }
 
     public interface OnRefreshListener {

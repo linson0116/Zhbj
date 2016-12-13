@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.linson.zhbj.R;
 import com.example.linson.zhbj.bean.NewsBean;
@@ -54,6 +56,7 @@ public class NewsTabPagerDetail {
     private List<TabDetailBean.News> mNewsListData;
 
     private boolean isPullDownRefresh = false; // 是否正在下拉刷新中
+    private String moreUrl;
 
     public NewsTabPagerDetail(Activity activity, NewsBean.TitleBean titleBean, boolean isEnableSlidingMenu) {
         mActivity = activity;
@@ -86,10 +89,46 @@ public class NewsTabPagerDetail {
 
             @Override
             public void onLoadingMore() {
-                //TODO
+                //取得更多数据
+                getMoreData();
             }
         });
         return rootView;
+    }
+
+    private void getMoreData() {
+        Log.i(TAG, "getMoreData: " + moreUrl);
+        if (TextUtils.isEmpty(moreUrl)) {
+            rlv_news.hiddenFooterView();
+            Toast.makeText(mActivity, "没有更多数据了", Toast.LENGTH_SHORT).show();
+        } else {
+            HttpUtils httpUtils = new HttpUtils();
+            String url = ConstantsUtils.SERVER_URL + moreUrl;
+            httpUtils.send(HttpRequest.HttpMethod.GET, url, new RequestCallBack<String>() {
+                @Override
+                public void onSuccess(ResponseInfo<String> responseInfo) {
+//                    Log.i(TAG, "onSuccess: " + responseInfo.result);
+                    TabDetailBean bean = processMoreData(responseInfo.result);
+                    moreUrl = bean.data.more;
+
+                    List<TabDetailBean.News> list = bean.data.news;
+                    mNewsListData.addAll(list);
+                    mNewsListAdapter.notifyDataSetChanged();
+                    rlv_news.isLoadingMore = false;
+                }
+
+                @Override
+                public void onFailure(HttpException e, String s) {
+
+                }
+            });
+
+        }
+    }
+
+    private TabDetailBean processMoreData(String result) {
+        Gson gson = new Gson();
+        return gson.fromJson(result, TabDetailBean.class);
     }
 
     public void initData() {
@@ -125,6 +164,8 @@ public class NewsTabPagerDetail {
     private void processData(String result) {
         Gson gson = new Gson();
         mTabDetailBean = gson.fromJson(result, TabDetailBean.class);
+        //下一页Url
+        moreUrl = mTabDetailBean.data.more;
         MyPagerAdapter myPagerAdapter = new MyPagerAdapter();
         vp_news_pic.setAdapter(myPagerAdapter);
         vp_news_pic.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
