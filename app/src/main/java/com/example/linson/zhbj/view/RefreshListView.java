@@ -2,10 +2,12 @@ package com.example.linson.zhbj.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
+import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -16,6 +18,8 @@ import com.example.linson.zhbj.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by Administrator on 2016/12/9.
@@ -43,20 +47,55 @@ public class RefreshListView extends ListView {
     private RotateAnimation downAnima; // 向下旋转的动画
 
     private OnRefreshListener mOnRefreshListener; // 用户的回调事件
+    private Boolean isLoadingMore = false;
+    private View mFooterView;
+    private int mFooterViewMeasuredHeight;
 
     public RefreshListView(Context context) {
         super(context);
         initHeaderView();
+        initFooterView();
     }
 
     public RefreshListView(Context context, AttributeSet attrs) {
         super(context, attrs);
         initHeaderView();
+        initFooterView();
     }
 
     public RefreshListView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initHeaderView();
+        initFooterView();
+    }
+
+    private void initFooterView() {
+        mFooterView = View.inflate(getContext(), R.layout.refresh_listview_footer, null);
+        this.addFooterView(mFooterView);
+        mFooterView.measure(0, 0);
+        mFooterViewMeasuredHeight = mFooterView.getMeasuredHeight();
+        mFooterView.setPadding(0, -mFooterViewMeasuredHeight, 0, 0);
+        this.setOnScrollListener(new OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView view, int scrollState) {
+                if (scrollState == SCROLL_STATE_IDLE ||
+                        scrollState == SCROLL_STATE_FLING) {
+                    if (getLastVisiblePosition() == getCount() - 1 && !isLoadingMore) {
+                        Log.i(TAG, "onScrollStateChanged: 达到底部");
+                        isLoadingMore = true;
+                        mFooterView.setPadding(0, 0, 0, 0);
+                        setSelection(getCount());
+                        //用户回调方法
+                        mOnRefreshListener.onLoadingMore();
+                    }
+                }
+            }
+
+            @Override
+            public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+
+            }
+        });
     }
 
     private void initHeaderView() {
@@ -79,7 +118,6 @@ public class RefreshListView extends ListView {
 
         initAnimation();
     }
-
     private void initAnimation() {
         upAnima = new RotateAnimation(
                 0, -180,
@@ -210,16 +248,23 @@ public class RefreshListView extends ListView {
      * 当刷新完数据之后, 调用此方法. 把头布局隐藏
      */
     public void onRefreshFinish(boolean isSuccess) {
-        mPullDownHeaderView.setPadding(0, -mHeaderViewHeight, 0, 0);
-        mCurrentState = PULL_DOWN_REFRESH;
-        mProgressbar.setVisibility(View.INVISIBLE);
-        mIvArrow.setVisibility(View.VISIBLE);
-        tvState.setText("下拉刷新");
+        if (isLoadingMore) {
+            isLoadingMore = false;
+            mFooterView.setPadding(0, -mFooterViewMeasuredHeight, 0, 0);
 
-        if (isSuccess) {
-            // 最后刷新时间
-            tvLastUpdateTime.setText("最后刷新时间: " + getCurrentTime());
+        } else {
+            mPullDownHeaderView.setPadding(0, -mHeaderViewHeight, 0, 0);
+            mCurrentState = PULL_DOWN_REFRESH;
+            mProgressbar.setVisibility(View.INVISIBLE);
+            mIvArrow.setVisibility(View.VISIBLE);
+            tvState.setText("下拉刷新");
+
+            if (isSuccess) {
+                // 最后刷新时间
+                tvLastUpdateTime.setText("最后刷新时间: " + getCurrentTime());
+            }
         }
+
     }
 
     /**
@@ -242,6 +287,10 @@ public class RefreshListView extends ListView {
          * 当下拉刷新时触发此方法
          */
         void onPullDownRefresh();
+
+        //加载更多
+        void onLoadingMore();
+
 
     }
 }

@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/library_sliding_menu" />
+            <option value="$PROJECT_DIR$/library_viewpagerindicator" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

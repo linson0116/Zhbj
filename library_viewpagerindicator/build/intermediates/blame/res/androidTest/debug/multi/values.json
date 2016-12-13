@@ -1,0 +1,950 @@
+[
+    {
+        "outputFile": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 44,
+                    "endOffset": 95
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 44,
+                        "endOffset": 95
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 100,
+                    "endColumn": 47,
+                    "endOffset": 143
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 100,
+                        "endColumn": 47,
+                        "endOffset": 143
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 148,
+                    "endColumn": 49,
+                    "endOffset": 193
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 148,
+                        "endColumn": 49,
+                        "endOffset": 193
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 198,
+                    "endColumn": 49,
+                    "endOffset": 243
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 198,
+                        "endColumn": 49,
+                        "endOffset": 243
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 248,
+                    "endColumn": 62,
+                    "endOffset": 306
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 248,
+                        "endColumn": 62,
+                        "endOffset": 306
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 7,
+                    "startColumn": 4,
+                    "startOffset": 311,
+                    "endColumn": 59,
+                    "endOffset": 366
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 311,
+                        "endColumn": 59,
+                        "endOffset": 366
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 371,
+                    "endColumn": 60,
+                    "endOffset": 427
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 371,
+                        "endColumn": 60,
+                        "endOffset": 427
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 432,
+                    "endColumn": 66,
+                    "endOffset": 494
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 432,
+                        "endColumn": 66,
+                        "endOffset": 494
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 499,
+                    "endColumn": 62,
+                    "endOffset": 557
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 499,
+                        "endColumn": 62,
+                        "endOffset": 557
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 562,
+                    "endColumn": 71,
+                    "endOffset": 629
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 562,
+                        "endColumn": 71,
+                        "endOffset": 629
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 634,
+                    "endColumn": 71,
+                    "endOffset": 701
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 634,
+                        "endColumn": 71,
+                        "endOffset": 701
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 706,
+                    "endColumn": 73,
+                    "endOffset": 775
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 706,
+                        "endColumn": 73,
+                        "endOffset": 775
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 780,
+                    "endColumn": 73,
+                    "endOffset": 849
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 780,
+                        "endColumn": 73,
+                        "endOffset": 849
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 854,
+                    "endColumn": 75,
+                    "endOffset": 925
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 854,
+                        "endColumn": 75,
+                        "endOffset": 925
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 930,
+                    "endColumn": 72,
+                    "endOffset": 998
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 930,
+                        "endColumn": 72,
+                        "endOffset": 998
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 1003,
+                    "endColumn": 74,
+                    "endOffset": 1073
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1003,
+                        "endColumn": 74,
+                        "endOffset": 1073
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1078,
+                    "endColumn": 70,
+                    "endOffset": 1144
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1078,
+                        "endColumn": 70,
+                        "endOffset": 1144
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1149,
+                    "endColumn": 78,
+                    "endOffset": 1223
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1149,
+                        "endColumn": 78,
+                        "endOffset": 1223
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1228,
+                    "endColumn": 61,
+                    "endOffset": 1285
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1228,
+                        "endColumn": 61,
+                        "endOffset": 1285
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1290,
+                    "endColumn": 57,
+                    "endOffset": 1343
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1290,
+                        "endColumn": 57,
+                        "endOffset": 1343
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 1348,
+                    "endColumn": 77,
+                    "endOffset": 1421
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1348,
+                        "endColumn": 77,
+                        "endOffset": 1421
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1426,
+                    "endColumn": 78,
+                    "endOffset": 1500
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1426,
+                        "endColumn": 78,
+                        "endOffset": 1500
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 1505,
+                    "endColumn": 92,
+                    "endOffset": 1593
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 1505,
+                        "endColumn": 92,
+                        "endOffset": 1593
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 1598,
+                    "endColumn": 92,
+                    "endOffset": 1686
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 1598,
+                        "endColumn": 92,
+                        "endOffset": 1686
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 1691,
+                    "endLine": 28,
+                    "endColumn": 12,
+                    "endOffset": 1808
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1691,
+                        "endLine": 28,
+                        "endColumn": 12,
+                        "endOffset": 1808
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 29,
+                    "startColumn": 4,
+                    "startOffset": 1813,
+                    "endLine": 31,
+                    "endColumn": 12,
+                    "endOffset": 1930
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 29,
+                        "startColumn": 4,
+                        "startOffset": 1813,
+                        "endLine": 31,
+                        "endColumn": 12,
+                        "endOffset": 1930
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 44,
+                    "startColumn": 4,
+                    "startOffset": 4240,
+                    "endColumn": 61,
+                    "endOffset": 4297
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 44,
+                        "startColumn": 4,
+                        "startOffset": 4240,
+                        "endColumn": 61,
+                        "endOffset": 4297
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 45,
+                    "startColumn": 4,
+                    "startOffset": 4302,
+                    "endColumn": 67,
+                    "endOffset": 4365
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 45,
+                        "startColumn": 4,
+                        "startOffset": 4302,
+                        "endColumn": 67,
+                        "endOffset": 4365
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 46,
+                    "startColumn": 4,
+                    "startOffset": 4370,
+                    "endColumn": 62,
+                    "endOffset": 4428
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 46,
+                        "startColumn": 4,
+                        "startOffset": 4370,
+                        "endColumn": 62,
+                        "endOffset": 4428
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 47,
+                    "startColumn": 4,
+                    "startOffset": 4433,
+                    "endColumn": 64,
+                    "endOffset": 4493
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 47,
+                        "startColumn": 4,
+                        "startOffset": 4433,
+                        "endColumn": 64,
+                        "endOffset": 4493
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 48,
+                    "startColumn": 4,
+                    "startOffset": 4498,
+                    "endColumn": 65,
+                    "endOffset": 4559
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 48,
+                        "startColumn": 4,
+                        "startOffset": 4498,
+                        "endColumn": 65,
+                        "endOffset": 4559
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 49,
+                    "startColumn": 4,
+                    "startOffset": 4564,
+                    "endColumn": 66,
+                    "endOffset": 4626
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 49,
+                        "startColumn": 4,
+                        "startOffset": 4564,
+                        "endColumn": 66,
+                        "endOffset": 4626
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 50,
+                    "startColumn": 4,
+                    "startOffset": 4631,
+                    "endColumn": 77,
+                    "endOffset": 4704
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 50,
+                        "startColumn": 4,
+                        "startOffset": 4631,
+                        "endColumn": 77,
+                        "endOffset": 4704
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 51,
+                    "startColumn": 4,
+                    "startOffset": 4709,
+                    "endColumn": 89,
+                    "endOffset": 4794
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 51,
+                        "startColumn": 4,
+                        "startOffset": 4709,
+                        "endColumn": 89,
+                        "endOffset": 4794
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 52,
+                    "startColumn": 4,
+                    "startOffset": 4799,
+                    "endColumn": 72,
+                    "endOffset": 4867
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 52,
+                        "startColumn": 4,
+                        "startOffset": 4799,
+                        "endColumn": 72,
+                        "endOffset": 4867
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 53,
+                    "startColumn": 4,
+                    "startOffset": 4872,
+                    "endColumn": 68,
+                    "endOffset": 4936
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 53,
+                        "startColumn": 4,
+                        "startOffset": 4872,
+                        "endColumn": 68,
+                        "endOffset": 4936
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 54,
+                    "startColumn": 4,
+                    "startOffset": 4941,
+                    "endColumn": 64,
+                    "endOffset": 5001
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 54,
+                        "startColumn": 4,
+                        "startOffset": 4941,
+                        "endColumn": 64,
+                        "endOffset": 5001
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 55,
+                    "startColumn": 4,
+                    "startOffset": 5006,
+                    "endColumn": 67,
+                    "endOffset": 5069
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 55,
+                        "startColumn": 4,
+                        "startOffset": 5006,
+                        "endColumn": 67,
+                        "endOffset": 5069
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 56,
+                    "startColumn": 4,
+                    "startOffset": 5074,
+                    "endColumn": 65,
+                    "endOffset": 5135
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 56,
+                        "startColumn": 4,
+                        "startOffset": 5074,
+                        "endColumn": 65,
+                        "endOffset": 5135
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 57,
+                    "startColumn": 4,
+                    "startOffset": 5140,
+                    "endColumn": 68,
+                    "endOffset": 5204
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 57,
+                        "startColumn": 4,
+                        "startOffset": 5140,
+                        "endColumn": 68,
+                        "endOffset": 5204
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 58,
+                    "startColumn": 4,
+                    "startOffset": 5209,
+                    "endColumn": 78,
+                    "endOffset": 5283
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 58,
+                        "startColumn": 4,
+                        "startOffset": 5209,
+                        "endColumn": 78,
+                        "endOffset": 5283
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 59,
+                    "startColumn": 4,
+                    "startOffset": 5288,
+                    "endColumn": 69,
+                    "endOffset": 5353
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 59,
+                        "startColumn": 4,
+                        "startOffset": 5288,
+                        "endColumn": 69,
+                        "endOffset": 5353
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 60,
+                    "startColumn": 4,
+                    "startOffset": 5358,
+                    "endColumn": 72,
+                    "endOffset": 5426
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 60,
+                        "startColumn": 4,
+                        "startOffset": 5358,
+                        "endColumn": 72,
+                        "endOffset": 5426
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 61,
+                    "startColumn": 4,
+                    "startOffset": 5431,
+                    "endColumn": 73,
+                    "endOffset": 5500
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 61,
+                        "startColumn": 4,
+                        "startOffset": 5431,
+                        "endColumn": 73,
+                        "endOffset": 5500
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 62,
+                    "startColumn": 4,
+                    "startOffset": 5505,
+                    "endLine": 65,
+                    "endColumn": 12,
+                    "endOffset": 5700
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 62,
+                        "startColumn": 4,
+                        "startOffset": 5505,
+                        "endLine": 65,
+                        "endColumn": 12,
+                        "endOffset": 5700
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 66,
+                    "startColumn": 4,
+                    "startOffset": 5705,
+                    "endLine": 69,
+                    "endColumn": 12,
+                    "endOffset": 5953
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 66,
+                        "startColumn": 4,
+                        "startOffset": 5705,
+                        "endLine": 69,
+                        "endColumn": 12,
+                        "endOffset": 5953
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 70,
+                    "startColumn": 4,
+                    "startOffset": 5958,
+                    "endColumn": 26,
+                    "endOffset": 5980
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 70,
+                        "startColumn": 4,
+                        "startOffset": 5958,
+                        "endColumn": 26,
+                        "endOffset": 5980
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 71,
+                    "startColumn": 4,
+                    "startOffset": 5985,
+                    "endLine": 74,
+                    "endColumn": 12,
+                    "endOffset": 6170
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 71,
+                        "startColumn": 4,
+                        "startOffset": 5985,
+                        "endLine": 74,
+                        "endColumn": 12,
+                        "endOffset": 6170
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 75,
+                    "startColumn": 4,
+                    "startOffset": 6175,
+                    "endLine": 85,
+                    "endColumn": 12,
+                    "endOffset": 6772
+                },
+                "from": {
+                    "file": "C:\\Users\\Administrator\\Desktop\\Zhbj\\library_viewpagerindicator\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 75,
+                        "startColumn": 4,
+                        "startOffset": 6175,
+                        "endLine": 85,
+                        "endColumn": 12,
+                        "endOffset": 6772
+                    }
+                }
+            }
+        ]
+    }
+]

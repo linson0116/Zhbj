@@ -83,6 +83,11 @@ public class NewsTabPagerDetail {
                 isPullDownRefresh = true;
                 initData();
             }
+
+            @Override
+            public void onLoadingMore() {
+                //TODO
+            }
         });
         return rootView;
     }
@@ -114,8 +119,6 @@ public class NewsTabPagerDetail {
                 }
             }
         });
-
-
     }
 
     //处理json
