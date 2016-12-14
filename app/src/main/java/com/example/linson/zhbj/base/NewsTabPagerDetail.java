@@ -1,13 +1,16 @@
 package com.example.linson.zhbj.base;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,6 +21,8 @@ import com.example.linson.zhbj.R;
 import com.example.linson.zhbj.bean.NewsBean;
 import com.example.linson.zhbj.bean.TabDetailBean;
 import com.example.linson.zhbj.utils.ConstantsUtils;
+import com.example.linson.zhbj.utils.SpUtils;
+import com.example.linson.zhbj.view.NewsDetailUI;
 import com.example.linson.zhbj.view.RefreshListView;
 import com.google.gson.Gson;
 import com.lidroid.xutils.BitmapUtils;
@@ -93,11 +98,33 @@ public class NewsTabPagerDetail {
                 getMoreData();
             }
         });
+        //保存阅读状态
+        rlv_news.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int realPosition = position - 1;
+                String new_id = mNewsListData.get(realPosition).id;
+                //取出id
+                String strIds = SpUtils.getString(mActivity, ConstantsUtils.NEWS_READED_IDS);
+                if (TextUtils.isEmpty(strIds)) {
+                    strIds = "";
+                }
+                //存储id
+                strIds += new_id + ",";
+                SpUtils.putString(mActivity, ConstantsUtils.NEWS_READED_IDS, strIds);
+//                Log.i(TAG, "new_id: " + new_id);
+                mNewsListAdapter.notifyDataSetChanged();
+                //打开详情页面
+                Intent intent = new Intent(mActivity, NewsDetailUI.class);
+                intent.putExtra("url", mNewsListData.get(realPosition).url);
+                mActivity.startActivity(intent);
+            }
+        });
         return rootView;
     }
 
     private void getMoreData() {
-        Log.i(TAG, "getMoreData: " + moreUrl);
+//        Log.i(TAG, "getMoreData: " + moreUrl);
         if (TextUtils.isEmpty(moreUrl)) {
             rlv_news.hiddenFooterView();
             Toast.makeText(mActivity, "没有更多数据了", Toast.LENGTH_SHORT).show();
@@ -177,7 +204,7 @@ public class NewsTabPagerDetail {
             @Override
             public void onPageSelected(int position) {
                 tv_news_title.setText(mTabDetailBean.data.topnews.get(position).title);
-                Log.i(TAG, "onPageSelected: " + mTabDetailBean.data.topnews.get(position).title);
+//                Log.i(TAG, "onPageSelected: " + mTabDetailBean.data.topnews.get(position).title);
 
                 int childCount = ll_pic_points.getChildCount();
                 for (int i = 0; i < childCount; i++) {
@@ -246,7 +273,14 @@ public class NewsTabPagerDetail {
             holder = (NewsListItemViewHolder) convertView.getTag();
             TabDetailBean.News bean = mNewsListData.get(position);
             mBitmapUtils.display(holder.iv_news_list_item_icon, bean.listimage);
-            holder.tv_news_list_item_textdetail.setText(bean.title);
+            holder.tv_news_list_item_textdetail.setText(bean.title + bean.id);
+            //设置已读状态
+            String news_ids = SpUtils.getString(mActivity, ConstantsUtils.NEWS_READED_IDS);
+            if (!TextUtils.isEmpty(news_ids) && news_ids.contains(bean.id)) {
+                holder.tv_news_list_item_textdetail.setTextColor(Color.GRAY);
+            } else {
+                holder.tv_news_list_item_textdetail.setTextColor(Color.BLACK);
+            }
             holder.tv_news_list_item_textdate.setText(bean.pubdate);
             return convertView;
         }
@@ -278,7 +312,7 @@ public class NewsTabPagerDetail {
             mBitmapUtils.display(iv, mTabDetailBean.data.topnews.get(position).topimage);
             container.addView(iv);
 //            tv_news_title.setText(mTabDetailBean.data.topnews.get(position).title);
-            Log.i(TAG, "instantiateItem: " + mTabDetailBean.data.topnews.get(position).title);
+//            Log.i(TAG, "instantiateItem: " + mTabDetailBean.data.topnews.get(position).title);
             return iv;
         }
 

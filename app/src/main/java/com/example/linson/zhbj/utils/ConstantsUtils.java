@@ -9,4 +9,5 @@ public class ConstantsUtils {
     public static final String NEWS_URL = SERVER_URL + "/categories.json";
     public static final String MAIN_FRAGMENT = "main_fragment";
     public static final String LEFT_MENU_FRAGMENT = "left_menu_fragment";
+    public static final String NEWS_READED_IDS = "news_readed_ids";
 }
