@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
@@ -62,6 +64,7 @@ public class NewsTabPagerDetail {
 
     private boolean isPullDownRefresh = false; // 是否正在下拉刷新中
     private String moreUrl;
+    private LoopHandler mLoopHandler;
 
     public NewsTabPagerDetail(Activity activity, NewsBean.TitleBean titleBean, boolean isEnableSlidingMenu) {
         mActivity = activity;
@@ -159,6 +162,7 @@ public class NewsTabPagerDetail {
     }
 
     public void initData() {
+        Log.i(TAG, "initData: NewsTabPagerDetail");
         String url = ConstantsUtils.SERVER_URL + titleBean.url;
         HttpUtils httpUtils = new HttpUtils();
         httpUtils.send(HttpRequest.HttpMethod.GET, url, new RequestCallBack<String>() {
@@ -239,6 +243,35 @@ public class NewsTabPagerDetail {
         mNewsListData = mTabDetailBean.data.news;
         mNewsListAdapter = new NewsListAdapter();
         rlv_news.setAdapter(mNewsListAdapter);
+        //图片循环播放
+        if (mLoopHandler == null) {
+            Log.i(TAG, "processData: null");
+            mLoopHandler = new LoopHandler();
+        } else {
+            Log.i(TAG, "processData: not null");
+            mLoopHandler.removeCallbacksAndMessages(null);
+        }
+        Log.i(TAG, "processData: aaa");
+        mLoopHandler.postDelayed(new PostRunnable(), 5000);
+    }
+
+    class LoopHandler extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            int i = (vp_news_pic.getCurrentItem() + 1) % mTabDetailBean.data.topnews.size();
+            Log.i(TAG, "handleMessage: size=" + mTabDetailBean.data.topnews.size());
+            vp_news_pic.setCurrentItem(i);
+            Log.i(TAG, "handleMessage: getCurrentItem=" + vp_news_pic.getCurrentItem());
+            mLoopHandler.postDelayed(new PostRunnable(), 5000);
+        }
+    }
+
+    class PostRunnable implements Runnable {
+        @Override
+        public void run() {
+            mLoopHandler.sendEmptyMessage(0);
+        }
     }
 
     class NewsListAdapter extends BaseAdapter {
