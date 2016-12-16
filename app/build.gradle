@@ -31,4 +31,9 @@ dependencies {
     compile files('src/main/lib/gson-2.2.1.jar')
     compile files('src/main/lib/org.apache.http.legacy.jar')
     compile project(':library_viewpagerindicator')
+    compile files('src/main/lib/MobCommons-2016.1107.1809.jar')
+    compile files('src/main/lib/MobTools-2016.1107.1809.jar')
+    compile files('src/main/lib/ShareSDK-Core-2.7.10.jar')
+    compile files('src/main/lib/ShareSDK-ShortMessage-2.7.10.jar')
+    compile files('src/main/lib/ShareSDK-TencentWeibo-2.7.10.jar')
 }
