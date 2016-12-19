@@ -21,4 +21,6 @@ public abstract class BaseMenuPager {
     public void initData() {
 
     }
+
+
 }

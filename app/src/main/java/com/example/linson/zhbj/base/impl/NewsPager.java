@@ -90,7 +90,7 @@ public class NewsPager extends BasePager {
         changeMenuPager(0);
     }
 
-    public void changeMenuPager(int index) {
+    public void changeMenuPager(final int index) {
         tv_title.setText(mNewsBean.data.get(index).title);
         Log.i(TAG, "changeMenuPager: " + mNewsBean.data.get(index).title);
         BaseMenuPager baseMenuPager = mPagerList.get(index);
@@ -102,6 +102,13 @@ public class NewsPager extends BasePager {
         } else {
             ib_grid_type.setVisibility(View.GONE);
         }
+        ib_grid_type.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MenuPicsPager menuPicsPager = (MenuPicsPager) mPagerList.get(index);
+                menuPicsPager.changePhotoListType(ib_grid_type);
+            }
+        });
 
     }
 }
