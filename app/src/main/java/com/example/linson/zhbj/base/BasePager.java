@@ -19,6 +19,7 @@ public class BasePager {
     public TextView tv_title;
     public ImageButton ib_menu;
     public FrameLayout fl_base_pager_content;
+    public ImageButton ib_grid_type;
 
     public BasePager(Activity activity) {
         mActivity = activity;
@@ -30,6 +31,7 @@ public class BasePager {
         tv_title = (TextView) view.findViewById(R.id.tv_title);
         ib_menu = (ImageButton) view.findViewById(R.id.ib_menu);
         fl_base_pager_content = (FrameLayout) view.findViewById(R.id.fl_base_pager_content);
+        ib_grid_type = (ImageButton) view.findViewById(R.id.ib_grid_type);
         return view;
     }
 

@@ -97,5 +97,11 @@ public class NewsPager extends BasePager {
         fl_base_pager_content.removeAllViews();
         fl_base_pager_content.addView(baseMenuPager.rootView);
         baseMenuPager.initData();
+        if (index == 2) {
+            ib_grid_type.setVisibility(View.VISIBLE);
+        } else {
+            ib_grid_type.setVisibility(View.GONE);
+        }
+
     }
 }

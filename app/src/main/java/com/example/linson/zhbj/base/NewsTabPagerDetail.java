@@ -19,12 +19,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.linson.zhbj.NewsDetailUIActivity;
 import com.example.linson.zhbj.R;
 import com.example.linson.zhbj.bean.NewsBean;
 import com.example.linson.zhbj.bean.TabDetailBean;
 import com.example.linson.zhbj.utils.ConstantsUtils;
 import com.example.linson.zhbj.utils.SpUtils;
-import com.example.linson.zhbj.view.NewsDetailUI;
 import com.example.linson.zhbj.view.RefreshListView;
 import com.google.gson.Gson;
 import com.lidroid.xutils.BitmapUtils;
@@ -118,7 +118,7 @@ public class NewsTabPagerDetail {
 //                Log.i(TAG, "new_id: " + new_id);
                 mNewsListAdapter.notifyDataSetChanged();
                 //打开详情页面
-                Intent intent = new Intent(mActivity, NewsDetailUI.class);
+                Intent intent = new Intent(mActivity, NewsDetailUIActivity.class);
                 intent.putExtra("url", mNewsListData.get(realPosition).url);
                 mActivity.startActivity(intent);
             }

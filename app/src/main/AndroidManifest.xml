@@ -37,7 +37,7 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.PageIndicatorDefaults" />
-        <activity android:name=".view.NewsDetailUI"></activity>
+        <activity android:name=".NewsDetailUIActivity"></activity>
 
         <activity
             android:name="com.mob.tools.MobUIShell"

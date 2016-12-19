@@ -1,4 +1,4 @@
-package com.example.linson.zhbj.view;
+package com.example.linson.zhbj;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -14,7 +14,6 @@ import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 
-import com.example.linson.zhbj.R;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.view.annotation.ViewInject;
 
@@ -23,7 +22,7 @@ import cn.sharesdk.onekeyshare.OnekeyShare;
 
 import static android.content.ContentValues.TAG;
 
-public class NewsDetailUI extends Activity {
+public class NewsDetailUIActivity extends Activity {
     @ViewInject(R.id.ib_back)
     ImageButton ib_back;
     @ViewInject(R.id.ib_text_size)
@@ -70,7 +69,7 @@ public class NewsDetailUI extends Activity {
         ib_text_size.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(NewsDetailUI.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(NewsDetailUIActivity.this);
                 builder.setTitle("AAA");
                 String[] item = {"最小字体", "稍小字体", "正常字体", "稍大字体", "最大字体"};
                 builder.setSingleChoiceItems(item, mChooseWhich, new DialogInterface.OnClickListener() {
