@@ -2,6 +2,7 @@ package com.example.linson.zhbj.base.impl.menu;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +16,9 @@ import android.widget.TextView;
 import com.example.linson.zhbj.R;
 import com.example.linson.zhbj.base.BaseMenuPager;
 import com.example.linson.zhbj.bean.PhotoBean;
+import com.example.linson.zhbj.utils.BitmapCacheUtils;
 import com.example.linson.zhbj.utils.ConstantsUtils;
 import com.google.gson.Gson;
-import com.lidroid.xutils.BitmapUtils;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.ViewUtils;
 import com.lidroid.xutils.exception.HttpException;
@@ -29,6 +30,7 @@ import com.lidroid.xutils.view.annotation.ViewInject;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
+import static com.example.linson.zhbj.utils.BitmapCacheUtils.BITMAP_FROM_NET;
 
 /**
  * Created by Administrator on 2016/12/1.
@@ -41,9 +43,25 @@ public class MenuPicsPager extends BaseMenuPager {
     ListView lv_photos;
     @ViewInject(R.id.gv_photos)
     GridView gv_photos;
+    private android.os.Handler mHandler = new android.os.Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case BITMAP_FROM_NET:
+                    //取得网络图片
+                    Log.i(TAG, "handleMessage: " + "取得网络图片");
+                    int positon = msg.arg1;
+                    ImageView iv = (ImageView) lv_photos.findViewWithTag(positon);
+                    iv.setImageBitmap((Bitmap) msg.obj);
+                    break;
+            }
+        }
+    };
+    private BitmapCacheUtils mBitmapCacheUtils;
 
     public MenuPicsPager(Activity activity) {
         super(activity);
+        mBitmapCacheUtils = new BitmapCacheUtils(mHandler);
     }
 
     @Override
@@ -130,9 +148,17 @@ public class MenuPicsPager extends BaseMenuPager {
             }
             PhotoBean.News news = mNewsPhotoList.get(position);
             myHolder.tv_item_text.setText(news.title);
-            BitmapUtils bitmapUtils = new BitmapUtils(mActivity);
-            bitmapUtils.configDefaultBitmapConfig(Bitmap.Config.ARGB_4444);
-            bitmapUtils.display(myHolder.iv_item_photo, news.listimage);
+            myHolder.iv_item_photo.setTag(position);
+//            BitmapUtils bitmapUtils = new BitmapUtils(mActivity);
+//            bitmapUtils.configDefaultBitmapConfig(Bitmap.Config.ARGB_4444);
+//            bitmapUtils.display(myHolder.iv_item_photo, news.listimage);
+            //图片三级缓存
+            String url = news.listimage;
+
+            Bitmap bitmap = mBitmapCacheUtils.getBitmap(url, position);
+            if (bitmap != null) {
+                myHolder.iv_item_photo.setImageBitmap(bitmap);
+            }
             return convertView;
         }
     }
